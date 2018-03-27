@@ -3,6 +3,8 @@
 
 # Log file
 *.log
+*derby.log
+*nohup.out
 
 # BlueJ files
 *.ctxt
@@ -20,3 +22,31 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Eclipse files #
+.settings
+.classpath
+.project
+
+# IntelliJ files #
+.idea
+local.properties
+*.iml
+out
+
+# Gradle files #
+.gradle
+build
+
+target
+logs
+ML-to-do-notes.md
+
+*dockerbuild/*.jar
+
+# Mac files
+.DS_Store
+
+# Chatterbot database file
+bots/database.db
+
