@@ -6,7 +6,7 @@
     <groupId>br.com.fabricads.poc</groupId>
     <artifactId>systemprops</artifactId>
     <packaging>war</packaging>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>Example Project</name>
     <url>http://fabricads.com.br/</url>
     <build>
@@ -16,6 +16,33 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.9.Final</version>
+                <configuration>
+                    <hostname>${jboss.hostname}</hostname>
+                    <username>${jboss.username}</username>
+                    <password>${jboss.password}</password>
+                    <name>${project.build.finalName}.war</name>
+                    <filename>${project.build.finalName}.war</filename>
+                    <force>true</force>
+                    <domain>
+                        <server-groups>
+                            <server-group>${jboss.server-group}</server-group>
+                        </server-groups>
+                    </domain>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>deploy-eap</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
