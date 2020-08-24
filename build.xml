@@ -1,0 +1,15 @@
+<project name="systemprops" default="war" basedir=".">
+	<target name="clean" depends="">
+		<delete dir="build" />
+	</target>
+	<target name="create" depends="">
+		<mkdir dir="build" />
+		<mkdir dir="build/classes" />
+	</target>
+	<target name="compile" depends="clean,create">
+		<javac srcdir="src/main/java" destdir="build/classes" includeantruntime="false" encoding="UTF-8"/>
+	</target>
+	<target name="war" depends="compile">
+		<war destfile="build/systemprops.war" basedir="src/main/webapp" />
+	</target>
+</project>
